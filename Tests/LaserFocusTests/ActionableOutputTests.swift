@@ -1,9 +1,9 @@
 import XCTest
 @testable import LaserFocus
 
-final class ActionableAtomTests: XCTestCase {
+final class ActionableOutputTests: XCTestCase {
   func testInitAndComparable() throws {
-    let unsortedActionableAtoms = [
+    let unsortedActionableOutputs = [
       ActionableOutput(
         input: ActionableInput(id: "A", localCategory: .completing, children: []),
         ancestors: [
@@ -56,13 +56,13 @@ final class ActionableAtomTests: XCTestCase {
     ]
 
     XCTAssertEqual(
-      unsortedActionableAtoms.map(\.globalCategory),
+      unsortedActionableOutputs.map(\.globalCategory),
       [.optional, .essential, .optional, .optional, .completing, .completing, .vital]
     )
     XCTAssertEqual(
-      unsortedActionableAtoms.map(\.averageCategoryRawValue).map { $0.rounded(fractionDigits: 2) },
+      unsortedActionableOutputs.map(\.averageCategoryRawValue).map { $0.rounded(fractionDigits: 2) },
       [2.50, 1.33, 3.20, 2.75, 2.0, 2.0, 1.0]
     )
-    XCTAssertEqual(unsortedActionableAtoms.sorted(stable: true).map(\.id), ["G", "B", "E", "F", "A", "D", "C"])
+    XCTAssertEqual(unsortedActionableOutputs.sorted(stable: true).map(\.id), ["G", "B", "E", "F", "A", "D", "C"])
   }
 }

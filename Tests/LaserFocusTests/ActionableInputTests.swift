@@ -1,7 +1,7 @@
 import XCTest
 @testable import LaserFocus
 
-final class ActionableTests: XCTestCase {
+final class ActionableInputTests: XCTestCase {
   func testComparable() throws {
     let unsortedActionables = [
       ActionableInput(id: "A", localCategory: .completing, children: []),

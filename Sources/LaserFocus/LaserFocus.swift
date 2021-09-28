@@ -2,7 +2,7 @@ import Foundation
 
 public enum LaserFocus {
   /// Returns the actionable items without children (= atoms) with calculated global category as primary & average category raw value as secondary priority.
-  static func prioritizedAtoms(inputs: [ActionableInput], ancestors: [ActionableInput]) -> [ActionableOutput] {
+  static func prioritizedAtoms(inputs: [ActionableInput], ancestors: [ActionableInput] = []) -> [ActionableOutput] {
     var outputs: [ActionableOutput] = []
 
     for input in inputs {
