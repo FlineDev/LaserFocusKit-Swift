@@ -13,7 +13,7 @@ let package = Package(
     .package(url: "https://github.com/marksands/BetterCodable.git", from: "0.4.0"),
 
     // Handy Swift features that didn't make it into the Swift standard library.
-    .package(url: "https://github.com/Flinesoft/HandySwift.git", .branch("main")),
+    .package(url: "https://github.com/Flinesoft/HandySwift.git", from: "3.4.0"),
   ],
   targets: [
     .target(

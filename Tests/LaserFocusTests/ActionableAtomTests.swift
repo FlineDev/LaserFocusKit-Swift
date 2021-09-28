@@ -4,59 +4,59 @@ import XCTest
 final class ActionableAtomTests: XCTestCase {
   func testInitAndComparable() throws {
     let unsortedActionableAtoms = [
-      ActionableAtom(
-        actionable: Actionable(id: "A", category: .completing, parts: []),
-        enclosingPath: [
-          Actionable(id: "A1", category: .essential, parts: []),
-          Actionable(id: "A2", category: .vital, parts: []),
-          Actionable(id: "A3", category: .optional, parts: []),
+      ActionableOutput(
+        input: ActionableInput(id: "A", localCategory: .completing, children: []),
+        ancestors: [
+          ActionableInput(id: "A1", localCategory: .essential, children: []),
+          ActionableInput(id: "A2", localCategory: .vital, children: []),
+          ActionableInput(id: "A3", localCategory: .optional, children: []),
         ]
       ),
-      ActionableAtom(
-        actionable: Actionable(id: "B", category: .essential, parts: []),
-        enclosingPath: [
-          Actionable(id: "B1", category: .vital, parts: []),
-          Actionable(id: "B2", category: .vital, parts: []),
+      ActionableOutput(
+        input: ActionableInput(id: "B", localCategory: .essential, children: []),
+        ancestors: [
+          ActionableInput(id: "B1", localCategory: .vital, children: []),
+          ActionableInput(id: "B2", localCategory: .vital, children: []),
         ]
       ),
-      ActionableAtom(
-        actionable: Actionable(id: "C", category: .essential, parts: []),
-        enclosingPath: [
-          Actionable(id: "C1", category: .optional, parts: []),
-          Actionable(id: "C2", category: .optional, parts: []),
-          Actionable(id: "C3", category: .completing, parts: []),
-          Actionable(id: "C4", category: .completing, parts: []),
+      ActionableOutput(
+        input: ActionableInput(id: "C", localCategory: .essential, children: []),
+        ancestors: [
+          ActionableInput(id: "C1", localCategory: .optional, children: []),
+          ActionableInput(id: "C2", localCategory: .optional, children: []),
+          ActionableInput(id: "C3", localCategory: .completing, children: []),
+          ActionableInput(id: "C4", localCategory: .completing, children: []),
         ]
       ),
-      ActionableAtom(
-        actionable: Actionable(id: "D", category: .vital, parts: []),
-        enclosingPath: [
-          Actionable(id: "D1", category: .optional, parts: []),
-          Actionable(id: "D2", category: .optional, parts: []),
-          Actionable(id: "D3", category: .essential, parts: []),
+      ActionableOutput(
+        input: ActionableInput(id: "D", localCategory: .vital, children: []),
+        ancestors: [
+          ActionableInput(id: "D1", localCategory: .optional, children: []),
+          ActionableInput(id: "D2", localCategory: .optional, children: []),
+          ActionableInput(id: "D3", localCategory: .essential, children: []),
         ]
       ),
-      ActionableAtom(
-        actionable: Actionable(id: "E", category: .completing, parts: []),
-        enclosingPath: [
-          Actionable(id: "F1", category: .vital, parts: []),
+      ActionableOutput(
+        input: ActionableInput(id: "E", localCategory: .completing, children: []),
+        ancestors: [
+          ActionableInput(id: "F1", localCategory: .vital, children: []),
         ]
       ),
-      ActionableAtom(
-        actionable: Actionable(id: "F", category: .essential, parts: []),
-        enclosingPath: [
-          Actionable(id: "F1", category: .vital, parts: []),
-          Actionable(id: "F3", category: .completing, parts: []),
+      ActionableOutput(
+        input: ActionableInput(id: "F", localCategory: .essential, children: []),
+        ancestors: [
+          ActionableInput(id: "F1", localCategory: .vital, children: []),
+          ActionableInput(id: "F3", localCategory: .completing, children: []),
         ]
       ),
-      ActionableAtom(
-        actionable: Actionable(id: "G", category: .vital, parts: []),
-        enclosingPath: []
+      ActionableOutput(
+        input: ActionableInput(id: "G", localCategory: .vital, children: []),
+        ancestors: []
       ),
     ]
 
     XCTAssertEqual(
-      unsortedActionableAtoms.map(\.overallCategory),
+      unsortedActionableAtoms.map(\.globalCategory),
       [.optional, .essential, .optional, .optional, .completing, .completing, .vital]
     )
     XCTAssertEqual(
