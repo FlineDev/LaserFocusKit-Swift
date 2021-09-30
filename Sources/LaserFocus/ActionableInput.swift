@@ -4,10 +4,10 @@ import BetterCodable
 /// An actionable item to be prioritized at any level.
 public struct ActionableInput: Codable, Identifiable {
   /// The identifier of the actionable item.
-  public let id: String
+  public var id: String
 
   /// The category an actionable item is rated as.
-  public let localCategory: Category
+  public var localCategory: Category
 
   /// The children of this actionable
   @DefaultEmptyArray

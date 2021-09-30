@@ -12,55 +12,55 @@ final class LaserFocusTests: XCTestCase {
             id: "A1",
             localCategory: .vital,
             children: [
-              .init(id: "A1a", localCategory: .vital, children: []),
-              .init(id: "A1b", localCategory: .essential, children: []),
-              .init(id: "A1c", localCategory: .completing, children: []),
-              .init(id: "A1d", localCategory: .optional, children: []),
-              .init(id: "A1e", localCategory: .retracting, children: []),
+              .init(id: "A1a", localCategory: .vital),
+              .init(id: "A1b", localCategory: .essential),
+              .init(id: "A1c", localCategory: .completing),
+              .init(id: "A1d", localCategory: .optional),
+              .init(id: "A1e", localCategory: .retracting),
             ]
           ),
           .init(
             id: "A2",
             localCategory: .essential,
             children: [
-              .init(id: "A2a", localCategory: .vital, children: []),
-              .init(id: "A2b", localCategory: .essential, children: []),
-              .init(id: "A2c", localCategory: .completing, children: []),
-              .init(id: "A2d", localCategory: .optional, children: []),
-              .init(id: "A2e", localCategory: .retracting, children: []),
+              .init(id: "A2a", localCategory: .vital),
+              .init(id: "A2b", localCategory: .essential),
+              .init(id: "A2c", localCategory: .completing),
+              .init(id: "A2d", localCategory: .optional),
+              .init(id: "A2e", localCategory: .retracting),
             ]
           ),
           .init(
             id: "A3",
             localCategory: .completing,
             children: [
-              .init(id: "A3a", localCategory: .vital, children: []),
-              .init(id: "A3b", localCategory: .essential, children: []),
-              .init(id: "A3c", localCategory: .completing, children: []),
-              .init(id: "A3d", localCategory: .optional, children: []),
-              .init(id: "A3e", localCategory: .retracting, children: []),
+              .init(id: "A3a", localCategory: .vital),
+              .init(id: "A3b", localCategory: .essential),
+              .init(id: "A3c", localCategory: .completing),
+              .init(id: "A3d", localCategory: .optional),
+              .init(id: "A3e", localCategory: .retracting),
             ]
           ),
           .init(
             id: "A4",
             localCategory: .optional,
             children: [
-              .init(id: "A4a", localCategory: .vital, children: []),
-              .init(id: "A4b", localCategory: .essential, children: []),
-              .init(id: "A4c", localCategory: .completing, children: []),
-              .init(id: "A4d", localCategory: .optional, children: []),
-              .init(id: "A4e", localCategory: .retracting, children: []),
+              .init(id: "A4a", localCategory: .vital),
+              .init(id: "A4b", localCategory: .essential),
+              .init(id: "A4c", localCategory: .completing),
+              .init(id: "A4d", localCategory: .optional),
+              .init(id: "A4e", localCategory: .retracting),
             ]
           ),
           .init(
             id: "A5",
             localCategory: .retracting,
             children: [
-              .init(id: "A5a", localCategory: .vital, children: []),
-              .init(id: "A5b", localCategory: .essential, children: []),
-              .init(id: "A5c", localCategory: .completing, children: []),
-              .init(id: "A5d", localCategory: .optional, children: []),
-              .init(id: "A5e", localCategory: .retracting, children: []),
+              .init(id: "A5a", localCategory: .vital),
+              .init(id: "A5b", localCategory: .essential),
+              .init(id: "A5c", localCategory: .completing),
+              .init(id: "A5d", localCategory: .optional),
+              .init(id: "A5e", localCategory: .retracting),
             ]
           ),
         ]
@@ -73,11 +73,11 @@ final class LaserFocusTests: XCTestCase {
             id: "B1",
             localCategory: .vital,
             children: [
-              .init(id: "B1a", localCategory: .vital, children: []),
-              .init(id: "B1b", localCategory: .essential, children: []),
-              .init(id: "B1c", localCategory: .completing, children: []),
-              .init(id: "B1d", localCategory: .optional, children: []),
-              .init(id: "B1e", localCategory: .retracting, children: []),
+              .init(id: "B1a", localCategory: .vital),
+              .init(id: "B1b", localCategory: .essential),
+              .init(id: "B1c", localCategory: .completing),
+              .init(id: "B1d", localCategory: .optional),
+              .init(id: "B1e", localCategory: .retracting),
             ]
           ),
           .init(
@@ -88,14 +88,14 @@ final class LaserFocusTests: XCTestCase {
                 id: "B2a",
                 localCategory: .vital,
                 children: [
-                  .init(id: "B2a1", localCategory: .completing, children: [])
+                  .init(id: "B2a1", localCategory: .completing)
                 ]
               )
             ]
           )
         ]
       ),
-      .init(id: "C", localCategory: .completing, children: [])
+      .init(id: "C", localCategory: .completing)
     ]
 
     let outputs = LaserFocus.prioritizedAtoms(inputs: inputs)
@@ -138,31 +138,31 @@ final class LaserFocusTests: XCTestCase {
     let inputs: [ActionableInput] = [
       .init(id: "A", localCategory: .vital, children: [
           .init(id: "A1", localCategory: .vital, children: [
-              .init(id: "A1x", localCategory: .vital, children: []),
-              .init(id: "A1y", localCategory: .essential, children: []),
-              .init(id: "A1z", localCategory: .completing, children: []),
+              .init(id: "A1x", localCategory: .vital),
+              .init(id: "A1y", localCategory: .essential),
+              .init(id: "A1z", localCategory: .completing),
             ]
           ),
-          .init(id: "A2", localCategory: .essential, children: []),
+          .init(id: "A2", localCategory: .essential),
           .init(id: "A3", localCategory: .completing, children: [
-              .init(id: "A3x", localCategory: .vital, children: []),
-              .init(id: "A3y", localCategory: .essential, children: []),
-              .init(id: "A3z", localCategory: .completing, children: []),
+              .init(id: "A3x", localCategory: .vital),
+              .init(id: "A3y", localCategory: .essential),
+              .init(id: "A3z", localCategory: .completing),
             ]
           ),
         ]
       ),
       .init(id: "B", localCategory: .optional, children: [
-          .init(id: "B1", localCategory: .vital, children: []),
+          .init(id: "B1", localCategory: .vital),
           .init(id: "B2", localCategory: .essential, children: [
-              .init(id: "B2x", localCategory: .vital, children: []),
-              .init(id: "B2y", localCategory: .retracting, children: []),
-              .init(id: "B2z", localCategory: .completing, children: []),
+              .init(id: "B2x", localCategory: .vital),
+              .init(id: "B2y", localCategory: .retracting),
+              .init(id: "B2z", localCategory: .completing),
             ]
           )
         ]
       ),
-      .init(id: "C", localCategory: .completing, children: [])
+      .init(id: "C", localCategory: .completing)
     ]
 
     let sortedOutputs: [ActionableOutput] = LaserFocus.prioritizedAtoms(inputs: inputs).sorted()
