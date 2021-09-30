@@ -14,34 +14,28 @@ For example, imagine you have the features "A", "B", and "C". Some of them have 
 ```swift
 let inputs: [ActionableInput] = [
   .init(id: "A", localCategory: .vital, children: [
-      .init(id: "A1", localCategory: .vital, children: [
-          .init(id: "A1x", localCategory: .vital, children: []),
-          .init(id: "A1y", localCategory: .essential, children: []),
-          .init(id: "A1z", localCategory: .completing, children: []),
-        ]
-      ),
-      .init(id: "A2", localCategory: .essential, children: []),
-      .init(id: "A3", localCategory: .completing, children: [
-          .init(id: "A3x", localCategory: .vital, children: []),
-          .init(id: "A3y", localCategory: .essential, children: []),
-          .init(id: "A3z", localCategory: .completing, children: []),
-        ]
-      ),
-    ]
+    .init(id: "A1", localCategory: .vital, children: [
+      .init(id: "A1x", localCategory: .vital),
+      .init(id: "A1y", localCategory: .essential),
+      .init(id: "A1z", localCategory: .completing)]
+    ),
+    .init(id: "A2", localCategory: .essential),
+    .init(id: "A3", localCategory: .completing, children: [
+      .init(id: "A3x", localCategory: .vital),
+      .init(id: "A3y", localCategory: .essential),
+      .init(id: "A3z", localCategory: .completing)]
+    )]
   ),
   .init(id: "B", localCategory: .optional, children: [
-      .init(id: "B1", localCategory: .vital, children: []),
-      .init(id: "B2", localCategory: .essential, children: [
-          .init(id: "B2x", localCategory: .vital, children: []),
-          .init(id: "B2y", localCategory: .retracting, children: []),
-          .init(id: "B2z", localCategory: .completing, children: []),
-        ]
-      )
-    ]
+    .init(id: "B1", localCategory: .vital),
+    .init(id: "B2", localCategory: .essential, children: [
+      .init(id: "B2x", localCategory: .vital),
+      .init(id: "B2y", localCategory: .retracting),
+      .init(id: "B2z", localCategory: .completing)]
+    )]
   ),
-  .init(id: "C", localCategory: .completing, children: [])
+  .init(id: "C", localCategory: .completing)
 ]
-
 ```
 
 What we want to know in the Laser Focus strategy, is the global category for each "leaf" element in the graph, or the elements without children, the "atomic" elements, so to say. These elements are not further split(table) and can directly be worked on. Just calling the `LaserFocus.prioritizedAtoms(inputs:)` gives us exactly these elements:
