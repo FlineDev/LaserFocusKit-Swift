@@ -9,7 +9,7 @@ Utility library for calculations when applying the [Laser Focus](https://dev.to/
 
 This library calculates the overall priority for a given graph of categorized actionable items, such as features or tasks. It supports any number of actionable item levels, e.g. you can provide an entire range of levels like "Epic", "Story", "Feature", "Task", "Sub-Task", "Step" as input. The main method takes just the top level ("Epic" in this case) and walks through the other children levels automatically.
 
-For example, imagine you have the features "A", "B", and "C". Some of them have 3 tasks "1", "2", and "3". And some of the tasks have subtasks, "x", "y", and "z". So the input is this top level array:
+For example, imagine you have the features "A", "B", and "C". Some of them have 3 tasks "1", "2", and "3". And some of the tasks have subtasks, "x", "y", and "z". So the input is this top level array with its children:
 
 ```swift
 let inputs: [ActionableInput] = [
@@ -44,7 +44,7 @@ let inputs: [ActionableInput] = [
 
 ```
 
-What we want to know in the Laser Focus strategy, is the global category for each "leaf" element in the graph, or the elements without children, the "atomic" elements, so to say because they are not further split(table). Just calling the `LaserFocus.prioritizedAtoms(inputs:)` gives us exactly these elements:
+What we want to know in the Laser Focus strategy, is the global category for each "leaf" element in the graph, or the elements without children, the "atomic" elements, so to say. These elements are not further split(table) and can directly be worked on. Just calling the `LaserFocus.prioritizedAtoms(inputs:)` gives us exactly these elements:
 
 ```swift
 let outputs: [ActionableOutput] = LaserFocus.prioritizedAtoms(inputs: inputs)
@@ -56,9 +56,9 @@ Each element in `ActionableOutput` has a `globalCategory` which includes the ove
 The simplest way to get the list of tasks in the correct priority order is to just call `sorted()` on the outputs as `ActionableOutput` is `Comparable`:
 
 ```swift
-let highestToLowestPriorityOutputs: [ActionableOutput] = LaserFocus.prioritizedAtoms(inputs: inputs).sorted()
+let sortedOutputs: [ActionableOutput] = outputs.sorted()
 
-print(highestToLowestPriorityOutputs.map(\.id)) // ["A1x", "A1y", "A2", "A1z", "A3x", "A3y", "A3z", "C", "B2x", "B1", "B2z", "B2y"]
+print(sortedOutputs.map(\.id)) // => ["A1x", "A1y", "A2", "A1z", "A3x", "A3y", "A3z", "C", "B2x", "B1", "B2z", "B2y"]
 ```
 
 Note that both the input `ActionableInput` and output type `ActionableOutput` are `Codable` and can therefore be easily read from & written to JSON.
