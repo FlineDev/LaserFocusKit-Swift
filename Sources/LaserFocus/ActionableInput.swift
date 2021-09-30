@@ -2,9 +2,9 @@ import Foundation
 import BetterCodable
 
 /// An actionable item to be prioritized at any level.
-public struct ActionableInput: Codable, Identifiable {
-  /// The identifier of the actionable item.
-  public var id: String
+public struct ActionableInput: Codable {
+  /// The name of the actionable item.
+  public var name: String
 
   /// The category an actionable item is rated as.
   public var localCategory: Category
@@ -14,10 +14,16 @@ public struct ActionableInput: Codable, Identifiable {
   public var children: [ActionableInput]
 
   /// Initializes an actionable item with given id, category and children.
-  public init(id: String, localCategory: Category, children: [ActionableInput] = []) {
-    self.id = id
+  public init(name: String, localCategory: Category, children: [ActionableInput] = []) {
+    self.name = name
     self.localCategory = localCategory
     self.children = children
+  }
+}
+
+extension ActionableInput: Identifiable {
+  public var id: String {
+    name
   }
 }
 

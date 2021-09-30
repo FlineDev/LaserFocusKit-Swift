@@ -4,13 +4,13 @@ import XCTest
 final class ActionableInputTests: XCTestCase {
   func testComparable() throws {
     let unsortedActionables = [
-      ActionableInput(id: "A", localCategory: .completing, children: []),
-      ActionableInput(id: "B", localCategory: .vital, children: []),
-      ActionableInput(id: "C", localCategory: .essential, children: []),
-      ActionableInput(id: "D", localCategory: .retracting, children: []),
-      ActionableInput(id: "E", localCategory: .essential, children: []),
+      ActionableInput(name: "A", localCategory: .completing, children: []),
+      ActionableInput(name: "B", localCategory: .vital, children: []),
+      ActionableInput(name: "C", localCategory: .essential, children: []),
+      ActionableInput(name: "D", localCategory: .retracting, children: []),
+      ActionableInput(name: "E", localCategory: .essential, children: []),
     ]
 
-    XCTAssertEqual(unsortedActionables.sorted(stable: true).map(\.id), ["B", "C", "E", "A", "D"])
+    XCTAssertEqual(unsortedActionables.sorted(stable: true).map(\.name), ["B", "C", "E", "A", "D"])
   }
 }
