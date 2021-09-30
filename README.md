@@ -13,28 +13,28 @@ For example, imagine you have the features "A", "B", and "C". Some of them have 
 
 ```swift
 let inputs: [ActionableInput] = [
-  .init(id: "A", localCategory: .vital, children: [
-    .init(id: "A1", localCategory: .vital, children: [
-      .init(id: "A1x", localCategory: .vital),
-      .init(id: "A1y", localCategory: .essential),
-      .init(id: "A1z", localCategory: .completing)]
+  .init(name: "A", localCategory: .vital, children: [
+    .init(name: "A1", localCategory: .vital, children: [
+      .init(name: "A1x", localCategory: .vital),
+      .init(name: "A1y", localCategory: .essential),
+      .init(name: "A1z", localCategory: .completing)]
     ),
-    .init(id: "A2", localCategory: .essential),
-    .init(id: "A3", localCategory: .completing, children: [
-      .init(id: "A3x", localCategory: .vital),
-      .init(id: "A3y", localCategory: .essential),
-      .init(id: "A3z", localCategory: .completing)]
+    .init(name: "A2", localCategory: .essential),
+    .init(name: "A3", localCategory: .completing, children: [
+      .init(name: "A3x", localCategory: .vital),
+      .init(name: "A3y", localCategory: .essential),
+      .init(name: "A3z", localCategory: .completing)]
     )]
   ),
-  .init(id: "B", localCategory: .optional, children: [
-    .init(id: "B1", localCategory: .vital),
-    .init(id: "B2", localCategory: .essential, children: [
-      .init(id: "B2x", localCategory: .vital),
-      .init(id: "B2y", localCategory: .retracting),
-      .init(id: "B2z", localCategory: .completing)]
+  .init(name: "B", localCategory: .optional, children: [
+    .init(name: "B1", localCategory: .vital),
+    .init(name: "B2", localCategory: .essential, children: [
+      .init(name: "B2x", localCategory: .vital),
+      .init(name: "B2y", localCategory: .retracting),
+      .init(name: "B2z", localCategory: .completing)]
     )]
   ),
-  .init(id: "C", localCategory: .completing)
+  .init(name: "C", localCategory: .completing)
 ]
 ```
 
@@ -52,7 +52,7 @@ The simplest way to get the list of tasks in the correct priority order is to ju
 ```swift
 let sortedOutputs: [ActionableOutput] = outputs.sorted()
 
-print(sortedOutputs.map(\.id)) // => ["A1x", "A1y", "A2", "A1z", "A3x", "A3y", "A3z", "C", "B2x", "B1", "B2z", "B2y"]
+print(sortedOutputs.map(\.name)) // => ["A1x", "A1y", "A2", "A1z", "A3x", "A3y", "A3z", "C", "B2x", "B1", "B2z", "B2y"]
 ```
 
 Note that both the input `ActionableInput` and output type `ActionableOutput` are `Codable` and can therefore be easily read from & written to JSON.

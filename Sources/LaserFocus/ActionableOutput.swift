@@ -3,9 +3,9 @@ import HandySwift
 
 /// The prioritized actionable item.
 /// For prioritization, use the `globalCategory` level first and `averageCategoryRawValue` second if `globalCategory` level is same.
-public struct ActionableOutput: Codable, Identifiable {
-  /// The identifier of the actionable item.
-  public let id: String
+public struct ActionableOutput: Codable {
+  /// The name of the actionable item.
+  public let name: String
 
   /// The enclosing actionables IDs this atomic actionable is part of.
   public let ancestorIds: [ActionableInput.ID]
@@ -18,11 +18,17 @@ public struct ActionableOutput: Codable, Identifiable {
 
   /// Initializes an atomic actionable item and calculates priority relevant fields automatically.
   public init(input: ActionableInput, ancestors: [ActionableInput]) {
-    self.id = input.id
+    self.name = input.name
     self.ancestorIds = ancestors.map(\.id)
 
     self.globalCategory = (ancestors.map(\.localCategory) + [input.localCategory]).max()!
     self.averageCategoryRawValue = (ancestors.map(\.localCategory).map(\.rawValue) + [input.localCategory.rawValue]).average()
+  }
+}
+
+extension ActionableOutput: Identifiable {
+  public var id: String {
+    name
   }
 }
 
