@@ -12,6 +12,13 @@ public struct ActionableInput: Codable, Identifiable {
   /// The children of this actionable
   @DefaultEmptyArray
   public var children: [ActionableInput]
+
+  /// Initializes an actionable item with given id, category and children.
+  public init(id: String, localCategory: Category, children: [ActionableInput] = []) {
+    self.id = id
+    self.localCategory = localCategory
+    self.children = children
+  }
 }
 
 extension ActionableInput: Comparable {
