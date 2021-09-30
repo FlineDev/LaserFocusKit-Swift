@@ -133,4 +133,42 @@ final class LaserFocusTests: XCTestCase {
     XCTAssertEqual(outputs.first { $0.id == "B2a1" }!.averageCategoryRawValue, 2.5, accuracy: 0.001)
     XCTAssertEqual(outputs.first { $0.id == "C" }!.averageCategoryRawValue, 3, accuracy: 0.001)
   }
+
+  func testReadmeExample() {
+    let inputs: [ActionableInput] = [
+      .init(id: "A", localCategory: .vital, children: [
+          .init(id: "A1", localCategory: .vital, children: [
+              .init(id: "A1x", localCategory: .vital, children: []),
+              .init(id: "A1y", localCategory: .essential, children: []),
+              .init(id: "A1z", localCategory: .completing, children: []),
+            ]
+          ),
+          .init(id: "A2", localCategory: .essential, children: []),
+          .init(id: "A3", localCategory: .completing, children: [
+              .init(id: "A3x", localCategory: .vital, children: []),
+              .init(id: "A3y", localCategory: .essential, children: []),
+              .init(id: "A3z", localCategory: .completing, children: []),
+            ]
+          ),
+        ]
+      ),
+      .init(id: "B", localCategory: .optional, children: [
+          .init(id: "B1", localCategory: .vital, children: []),
+          .init(id: "B2", localCategory: .essential, children: [
+              .init(id: "B2x", localCategory: .vital, children: []),
+              .init(id: "B2y", localCategory: .retracting, children: []),
+              .init(id: "B2z", localCategory: .completing, children: []),
+            ]
+          )
+        ]
+      ),
+      .init(id: "C", localCategory: .completing, children: [])
+    ]
+
+    let sortedOutputs: [ActionableOutput] = LaserFocus.prioritizedAtoms(inputs: inputs).sorted()
+    XCTAssertEqual(
+      sortedOutputs.map(\.id),
+      ["A1x", "A1y", "A2", "A1z", "A3x", "A3y", "A3z", "C", "B2x", "B1", "B2z", "B2y"]
+    )
+  }
 }
