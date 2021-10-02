@@ -18,6 +18,12 @@ public enum Category: Int, Codable, CaseIterable {
   case retracting = 5
 }
 
+extension Category: Identifiable {
+  public var id: Int {
+    rawValue
+  }
+}
+
 extension Category: Comparable {
   public static func < (lhs: Category, rhs: Category) -> Bool {
     lhs.rawValue < rhs.rawValue
