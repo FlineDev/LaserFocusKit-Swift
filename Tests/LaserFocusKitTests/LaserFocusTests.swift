@@ -11,6 +11,7 @@ final class LaserFocusTests: XCTestCase {
           .init(
             name: "A1",
             localCategory: .vital,
+            ancestorIds: ["A"],
             children: [
               .init(name: "A1a", localCategory: .vital),
               .init(name: "A1b", localCategory: .essential),
@@ -22,6 +23,7 @@ final class LaserFocusTests: XCTestCase {
           .init(
             name: "A2",
             localCategory: .essential,
+            ancestorIds: ["A"],
             children: [
               .init(name: "A2a", localCategory: .vital),
               .init(name: "A2b", localCategory: .essential),
@@ -33,6 +35,7 @@ final class LaserFocusTests: XCTestCase {
           .init(
             name: "A3",
             localCategory: .completing,
+            ancestorIds: ["A"],
             children: [
               .init(name: "A3a", localCategory: .vital),
               .init(name: "A3b", localCategory: .essential),
@@ -44,6 +47,7 @@ final class LaserFocusTests: XCTestCase {
           .init(
             name: "A4",
             localCategory: .optional,
+            ancestorIds: ["A"],
             children: [
               .init(name: "A4a", localCategory: .vital),
               .init(name: "A4b", localCategory: .essential),
@@ -55,6 +59,7 @@ final class LaserFocusTests: XCTestCase {
           .init(
             name: "A5",
             localCategory: .retracting,
+            ancestorIds: ["A"],
             children: [
               .init(name: "A5a", localCategory: .vital),
               .init(name: "A5b", localCategory: .essential),
@@ -72,6 +77,7 @@ final class LaserFocusTests: XCTestCase {
           .init(
             name: "B1",
             localCategory: .vital,
+            ancestorIds: ["B"],
             children: [
               .init(name: "B1a", localCategory: .vital),
               .init(name: "B1b", localCategory: .essential),
@@ -83,10 +89,12 @@ final class LaserFocusTests: XCTestCase {
           .init(
             name: "B2",
             localCategory: .essential,
+            ancestorIds: ["B"],
             children: [
               .init(
                 name: "B2a",
                 localCategory: .vital,
+                ancestorIds: ["B", "B2"],
                 children: [
                   .init(name: "B2a1", localCategory: .completing)
                 ]
