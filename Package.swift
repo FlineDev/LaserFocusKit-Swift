@@ -3,10 +3,10 @@
 import PackageDescription
 
 let package = Package(
-  name: "LaserFocus",
+  name: "LaserFocusKit",
   platforms: [.macOS(.v10_12)],
   products: [
-    .library(name: "LaserFocusKit", targets: ["LaserFocus"]),
+    .library(name: "LaserFocusKit", targets: ["LaserFocusKit"]),
   ],
   dependencies: [
     // Better Codable through Property Wrappers
@@ -17,12 +17,12 @@ let package = Package(
   ],
   targets: [
     .target(
-      name: "LaserFocus",
+      name: "LaserFocusKit",
       dependencies: [
         .product(name: "BetterCodable", package: "BetterCodable"),
         .product(name: "HandySwift", package: "HandySwift"),
       ]
     ),
-    .testTarget(name: "LaserFocusTests", dependencies: ["LaserFocus"]),
+    .testTarget(name: "LaserFocusKitTests", dependencies: ["LaserFocusKit"]),
   ]
 )

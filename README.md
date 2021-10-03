@@ -1,6 +1,6 @@
 <img width="1164" alt="Laser Focus Header" src="https://user-images.githubusercontent.com/6942160/135471993-bc65430a-dd45-4810-9139-f59cdab56c4b.png">
 
-# LaserFocus-Swift
+# LaserFocusKit-Swift
 Utility library for calculations when applying the [Laser Focus](https://dev.to/jeehut/laser-focus-priority-strategy-31ok) priority strategy.
 
 ## Usage
