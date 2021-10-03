@@ -1,5 +1,5 @@
 import XCTest
-@testable import LaserFocus
+@testable import LaserFocusKit
 
 final class ActionableOutputTests: XCTestCase {
   func testInitAndComparable() throws {

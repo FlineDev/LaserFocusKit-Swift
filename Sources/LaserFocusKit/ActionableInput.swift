@@ -2,7 +2,7 @@ import Foundation
 import BetterCodable
 
 /// An actionable item to be prioritized at any level.
-public struct ActionableInput: Codable {
+public class ActionableInput: Codable {
   /// The name of the actionable item.
   public var name: String
 
@@ -28,6 +28,10 @@ extension ActionableInput: Identifiable {
 }
 
 extension ActionableInput: Comparable {
+  public static func == (lhs: ActionableInput, rhs: ActionableInput) -> Bool {
+    lhs.localCategory == rhs.localCategory
+  }
+
   public static func < (lhs: ActionableInput, rhs: ActionableInput) -> Bool {
     lhs.localCategory < rhs.localCategory
   }

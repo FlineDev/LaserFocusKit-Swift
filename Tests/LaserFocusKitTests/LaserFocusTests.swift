@@ -1,5 +1,5 @@
 import XCTest
-@testable import LaserFocus
+@testable import LaserFocusKit
 
 final class LaserFocusTests: XCTestCase {
   func testPrioritizedAtoms() throws {
