@@ -6,7 +6,7 @@ let package = Package(
   name: "LaserFocus",
   platforms: [.macOS(.v10_12)],
   products: [
-    .library(name: "LaserFocus", targets: ["LaserFocus"]),
+    .library(name: "LaserFocusKit", targets: ["LaserFocus"]),
   ],
   dependencies: [
     // Better Codable through Property Wrappers
