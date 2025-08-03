@@ -32,7 +32,7 @@ public class ActionableInput: Codable {
 
 extension ActionableInput: Identifiable {
    public var id: String {
-      name
+      self.name
    }
 }
 

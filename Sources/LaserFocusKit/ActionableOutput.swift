@@ -28,7 +28,7 @@ public struct ActionableOutput: Codable {
 
 extension ActionableOutput: Identifiable {
    public var id: String {
-      name
+      self.name
    }
 }
 
